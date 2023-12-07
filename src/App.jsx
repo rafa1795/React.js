@@ -1,5 +1,4 @@
 import React from 'react'
-import CartWidget from './components/cartWidget'
 import NavBar from './components/NavBar'
 import ItemsContainer from './components/ItemListContainer'
 
