@@ -1,13 +1,9 @@
-import React from "react";
-import { Center } from "@chakra-ui/react";
-import ItemList from "./ItemList";
-import { useParams } from "react-router-dom";
-import { Grid, GridItem } from '@chakra-ui/react'
+import React from 'react'
+import ItemList from './ItemList'
+import { useParams } from 'react-router-dom'
+import ItemDetail from './ItemDetail'
 
-export const ItemsContainer = ({}) => {
-
-    const { categoriaid } = useParams()
-    
+const ItemDetailContainer = ({}) => {
 
     const productos = [
         {
@@ -84,26 +80,22 @@ export const ItemsContainer = ({}) => {
         },
     ]
 
-    const filtros = productos.filter((productos) => productos.categoria == categoriaid)
-    
+    const { id } = useParams()
+    console.log(id)
+
+    const productoFiltrado = productos.find((producto) =>  producto.id == id)  
 
     return (
         
         <div>
-
-            {
-                categoriaid ? <ItemList
-                productos={filtros}
-                /> : <ItemList
-                productos={productos}
-                />
-            }
             
-
+                <ItemDetail
+                producto = {productoFiltrado}
+                />
         </div>
 
         
     )
 }
 
-export default ItemsContainer
+export default ItemDetailContainer
