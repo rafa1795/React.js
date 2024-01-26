@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import Item from './Item'
-
+import Loader from './Loader'
 
 const ItemList = ({ productos }) => {
     
-console.log(productos)
-
     return (
     <div>    
-        {
-        productos.map((p) => {
+        {productos.map((p) => {
             return (
                 <Item
                     img={p.img}
@@ -18,7 +15,7 @@ console.log(productos)
                     id={p.id}
                 />
             )
-        })
+            })
         }
     </div>
     )
